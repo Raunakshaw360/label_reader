@@ -19,7 +19,8 @@ class HomeScreen extends StatelessWidget {
               child: const Text('Camera'),
               onPressed: () async {
                 Navigator.of(context).pop();
-                final XFile? image = await _picker.pickImage(source: ImageSource.camera);
+                final XFile? image =
+                    await _picker.pickImage(source: ImageSource.camera);
                 if (image != null) {
                   // Handle the image from the camera
                   print('Image from camera: ${image.path}');
@@ -30,7 +31,8 @@ class HomeScreen extends StatelessWidget {
               child: const Text('Gallery'),
               onPressed: () async {
                 Navigator.of(context).pop();
-                final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
+                final XFile? image =
+                    await _picker.pickImage(source: ImageSource.gallery);
                 if (image != null) {
                   // Handle the image from the gallery
                   print('Image from gallery: ${image.path}');
@@ -62,11 +64,12 @@ class HomeScreen extends StatelessWidget {
               // Handle the history icon press
               print('History icon pressed');
             },
-          ),IconButton(
-            icon: const Icon(
-              Icons.fastfood_rounded,
-              color: Colors.white,
-            ),
+          ),
+          IconButton(
+              icon: const Icon(
+                Icons.fastfood_rounded,
+                color: Colors.white,
+              ),
               onPressed: () {
                 Navigator.push(
                   context,
@@ -74,8 +77,7 @@ class HomeScreen extends StatelessWidget {
                     builder: (context) => RecipeListScreen(),
                   ),
                 );
-              }
-          ),
+              }),
         ],
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -110,14 +112,54 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: screenHeight / 4,
+                height: screenHeight / 5,
               ),
               GestureDetector(
                 onTap: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const NewsListScreen(),
+                      builder: (context) => RecipeListScreen(),
+                    ),
+                  );
+                },
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal:  MediaQuery.of(context).size.width/5
+                  ),
+                  child: Container(
+                      decoration: ShapeDecoration(
+                        color: const Color(0xFF242426),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Icon(Icons.fastfood_rounded,color: Color(0xFFFEB340),),
+                            Text(
+                              'Explore Healthy Recipes',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w900),
+                            ),
+                          ],
+                        ),
+                      )),
+                ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>  NewsScreen(),
                     ),
                   );
                 },
@@ -145,10 +187,10 @@ class HomeScreen extends StatelessWidget {
                                 fontSize: 16,
                                 color: Color(0xFFFEB340)),
                           ),
-                          Icon(Icons.open_in_new_rounded, color: Color(0xFFFEB340)),
+                          Icon(Icons.open_in_new_rounded,
+                              color: Color(0xFFFEB340)),
                         ],
                       ),
-
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: SizedBox(
