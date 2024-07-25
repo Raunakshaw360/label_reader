@@ -5,7 +5,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:label_scan/screens/recipe_screen.dart';
 import 'food_details_screen.dart';
-import 'news_screen.dart'; // Import the new screen
+import 'news_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -178,6 +178,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     colors: [Color(0xFF5D7EFC), Color(0xFF9F4BFB)],
                   ),
                 ),
+                child: Center(child: Text('#labelPadhegaIndia',style: TextStyle(color: Colors.white,fontWeight: FontWeight.w900,fontSize: 24),)),
               ),
               SizedBox(
                 height: screenHeight / 5,
@@ -230,63 +231,34 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   );
                 },
-                child: Container(
-                  width: 300,
-                  height: 180,
-                  decoration: ShapeDecoration(
-                    color: const Color(0xFF242426),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16),
-                    ),
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      const Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Food News",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w900,
-                              fontSize: 16,
-                              color: Color(0xFFFEB340),
-                            ),
-                          ),
-                          Icon(Icons.open_in_new_rounded, color: Color(0xFFFEB340)),
-                        ],
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: SizedBox(
-                          height: 100,
-                          width: double.infinity,
-                          child: Swiper(
-                            itemBuilder: (BuildContext context, int index) {
-                              return Container(
-                                width: 180,
-                                height: 50,
-                                decoration: ShapeDecoration(
-                                  color: Colors.white,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(16),
-                                  ),
-                                ),
-                              );
-                            },
-                            itemCount: 5,
-                            viewportFraction: 0.8,
-                            scale: 0.9,
-                          ),
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: screenWidth / 5),
+                  child: Container(
+                      decoration: ShapeDecoration(
+                        color: const Color(0xFF242426),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
                         ),
                       ),
-                    ],
-                  ),
-                ),
+                      child: const Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Icon(Icons.article_rounded, color: Color(0xFFFEB340)),
+                            Text(
+                              'Health News',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w900,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
               ),
-            ],
+                ),),],
           ),
           Center(
             child: Stack(
