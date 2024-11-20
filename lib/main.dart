@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:label_scan/screens/home_screen.dart';
+import 'package:label_scan/screens/news_screen.dart';
 
 
 void main() {
@@ -15,6 +16,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const HomeScreen(),
+        '/news': (context) =>  NewsScreen(),
       },
     );
   }
