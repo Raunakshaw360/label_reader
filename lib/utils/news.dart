@@ -2,11 +2,11 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class NewsService {
-  final String _apiKey = '56bdbde21f3444f2b4d02d4c664f528f';
-  final String _baseUrl = 'https://newsapi.org/v2/everything'; // Use 'everything' endpoint
+  // final String _apiKey = '56bdbde21f3444f2b4d02d4c664f528f';
+  // final String _baseUrl = 'https://newsapi.org/v2/everything'; // Use 'everything' endpoint
 
   Future<List<NewsArticle>> fetchFoodNews() async {
-    final response = await http.get(Uri.parse('$_baseUrl?q=food&apiKey=$_apiKey'));
+    // final response = await http.get(Uri.parse('$_baseUrl?q=food&apiKey=$_apiKey'));
 
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
