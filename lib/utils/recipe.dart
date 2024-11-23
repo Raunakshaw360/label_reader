@@ -4,14 +4,14 @@ import 'package:http/http.dart' as http;
 // RecipeService class
 
 class RecipeService {
-  final String apiKey = '1ac0c5800ee546238f891d43fa55aefe';
-  final String baseUrl = 'https://api.spoonacular.com/recipes';
+  // final String apiKey = '1ac0c5800ee546238f891d43fa55aefe';
+  // final String baseUrl = 'https://api.spoonacular.com/recipes';
 
   Future<List<Recipe>> fetchRecipes(String query, {String? diet, bool? random, bool? healthy}) async {
     final dietQuery = diet != null ? '&diet=$diet' : '';
     final randomQuery = random != null && random ? '&random=true' : '';
     final healthyQuery = healthy != null && healthy ? '&maxCalories=500' : ''; // Example filter for healthy
-    final response = await http.get(Uri.parse('$baseUrl/complexSearch?query=$query&apiKey=$apiKey$dietQuery$randomQuery$healthyQuery'));
+    // final response = await http.get(Uri.parse('$baseUrl/complexSearch?query=$query&apiKey=$apiKey$dietQuery$randomQuery$healthyQuery'));
 
     if (response.statusCode == 200) {
       final data = json.decode(response.body);
