@@ -58,7 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
       _isLoading = true; // Start loading
     });
 
-    const apiKey = 'AIzaSyA9AGR12qZa4q0FB5YBEBGfbOnWPaPXzLA'; // Replace with your actual API key
+    // const apiKey = ; // Replace with your actual API key
 
     if (apiKey.isEmpty) {
       // print('API Key is empty');
@@ -69,7 +69,7 @@ class _HomeScreenState extends State<HomeScreen> {
     }
 
     try {
-      final model = GenerativeModel(model: 'gemini-1.5-flash', apiKey: apiKey);
+      
 
       final bytes = await image.readAsBytes();
       final base64Image = base64Encode(bytes);
